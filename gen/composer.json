@@ -1,0 +1,14 @@
+{
+    "name": "zamus/gen",
+    "require": {
+        "crysalead/dir": "^2.0",
+        "eden/sqlite": "^4.0",
+        "spatie/url": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "yovie",
+            "email": "yoviesmanda@gmail.com"
+        }
+    ]
+}
