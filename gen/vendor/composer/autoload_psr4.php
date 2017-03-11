@@ -6,12 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'TextFile\\' => array($vendorDir . '/michaelgarrez/text-file/src'),
+    'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Spatie\\Url\\' => array($vendorDir . '/spatie/url/src'),
+    'SimpleCrud\\' => array($vendorDir . '/simple-crud/simple-crud/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Lead\\Dir\\' => array($vendorDir . '/crysalead/dir/src'),
-    'Eden\\Sqlite\\' => array($vendorDir . '/eden/sqlite/src'),
-    'Eden\\Sql\\' => array($vendorDir . '/eden/sql/src'),
-    'Eden\\Model\\' => array($vendorDir . '/eden/model/src'),
-    'Eden\\Core\\' => array($vendorDir . '/eden/core/src'),
-    'Eden\\Collection\\' => array($vendorDir . '/eden/collection/src'),
 );

@@ -2,8 +2,9 @@
     "name": "zamus/gen",
     "require": {
         "crysalead/dir": "^2.0",
-        "eden/sqlite": "^4.0",
-        "spatie/url": "^1.0"
+        "spatie/url": "^1.0",
+        "simple-crud/simple-crud": "^6.9",
+        "michaelgarrez/text-file": "^0.0.1"
     },
     "authors": [
         {

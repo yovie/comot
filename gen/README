@@ -1,0 +1,27 @@
+CREATE TABLE sqlite_sequence(name,seq);
+
+CREATE TABLE "tposts" (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`category_id`	INTEGER,
+	`title`	TEXT,
+	`body`	TEXT,
+	`picture`	TEXT,
+	`url`	TEXT
+);
+
+CREATE TABLE `tcategories` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`category`	TEXT
+);
+
+
+no url :
+	get 10 random post, ok
+
+no post :
+	get 10 random post, ok
+	get 10 random post in the category
+
+with post:
+	get 10 random post, ok
+	get the post

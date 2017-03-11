@@ -7,9 +7,15 @@ namespace Composer\Autoload;
 class ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9
 {
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'TextFile\\' => 9,
+        ),
         'S' => 
         array (
+            'Symfony\\Component\\Filesystem\\' => 29,
             'Spatie\\Url\\' => 11,
+            'SimpleCrud\\' => 11,
         ),
         'P' => 
         array (
@@ -19,20 +25,24 @@ class ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9
         array (
             'Lead\\Dir\\' => 9,
         ),
-        'E' => 
-        array (
-            'Eden\\Sqlite\\' => 12,
-            'Eden\\Sql\\' => 9,
-            'Eden\\Model\\' => 11,
-            'Eden\\Core\\' => 10,
-            'Eden\\Collection\\' => 16,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'TextFile\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/michaelgarrez/text-file/src',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
+        ),
         'Spatie\\Url\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/url/src',
+        ),
+        'SimpleCrud\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/simple-crud/simple-crud/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -42,38 +52,6 @@ class ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9
         array (
             0 => __DIR__ . '/..' . '/crysalead/dir/src',
         ),
-        'Eden\\Sqlite\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eden/sqlite/src',
-        ),
-        'Eden\\Sql\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eden/sql/src',
-        ),
-        'Eden\\Model\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eden/model/src',
-        ),
-        'Eden\\Core\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eden/core/src',
-        ),
-        'Eden\\Collection\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eden/collection/src',
-        ),
-    );
-
-    public static $classMap = array (
-        'Eden' => __DIR__ . '/..' . '/eden/core/src/Decorator.php',
-        'Eden_Array_Argument' => __DIR__ . '/..' . '/eden/array/src/Argument.php',
-        'Eden_Array_Base' => __DIR__ . '/..' . '/eden/array/src/Base.php',
-        'Eden_Array_Exception' => __DIR__ . '/..' . '/eden/array/src/Exception.php',
-        'Eden_Array_Index' => __DIR__ . '/..' . '/eden/array/src/Index.php',
-        'Eden_String_Argument' => __DIR__ . '/..' . '/eden/string/src/Argument.php',
-        'Eden_String_Base' => __DIR__ . '/..' . '/eden/string/src/Base.php',
-        'Eden_String_Exception' => __DIR__ . '/..' . '/eden/string/src/Exception.php',
-        'Eden_String_Index' => __DIR__ . '/..' . '/eden/string/src/Index.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -81,7 +59,6 @@ class ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit6dfdf0fa631c1f9bbc7077f7a6981aa9::$classMap;
 
         }, null, ClassLoader::class);
     }

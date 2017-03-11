@@ -41,330 +41,6 @@
         ]
     },
     {
-        "name": "eden/core",
-        "version": "4.0.3",
-        "version_normalized": "4.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Core.git",
-            "reference": "2dbd1f3e83ca0dd2d787d31f1654335fba6b6f72"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Core/zipball/2dbd1f3e83ca0dd2d787d31f1654335fba6b6f72",
-            "reference": "2dbd1f3e83ca0dd2d787d31f1654335fba6b6f72",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.1"
-        },
-        "time": "2016-07-24 01:57:25",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Eden\\Core\\": "src/"
-            },
-            "classmap": [
-                "src/Decorator.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Eden Core component full of secret sauce",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/array",
-        "version": "4.0.3",
-        "version_normalized": "4.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Array.git",
-            "reference": "a66188d736c05a6595bfc87cd552522e3bb55db6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Array/zipball/a66188d736c05a6595bfc87cd552522e3bb55db6",
-            "reference": "a66188d736c05a6595bfc87cd552522e3bb55db6",
-            "shasum": ""
-        },
-        "require": {
-            "eden/core": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2016-07-24 01:32:26",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Autoloading, error and exception handler",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/string",
-        "version": "4.0.3",
-        "version_normalized": "4.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/String.git",
-            "reference": "2868350eea5c5cbe430f38915f941c0f3764ae33"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/String/zipball/2868350eea5c5cbe430f38915f941c0f3764ae33",
-            "reference": "2868350eea5c5cbe430f38915f941c0f3764ae33",
-            "shasum": ""
-        },
-        "require": {
-            "eden/core": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2016-07-24 01:33:39",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Autoloading, error and exception handler",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/model",
-        "version": "4.0.1",
-        "version_normalized": "4.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Model.git",
-            "reference": "929875832778c498e25fa523caecfc4f9d2d832c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Model/zipball/929875832778c498e25fa523caecfc4f9d2d832c",
-            "reference": "929875832778c498e25fa523caecfc4f9d2d832c",
-            "shasum": ""
-        },
-        "require": {
-            "eden/array": "4.*",
-            "eden/core": "4.*",
-            "eden/string": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2015-10-13 05:10:11",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Eden\\Model\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Eden generic model component",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/collection",
-        "version": "4.0.1",
-        "version_normalized": "4.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Collection.git",
-            "reference": "c201d02e2003379585cc4993c70d5ead4649e19a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Collection/zipball/c201d02e2003379585cc4993c70d5ead4649e19a",
-            "reference": "c201d02e2003379585cc4993c70d5ead4649e19a",
-            "shasum": ""
-        },
-        "require": {
-            "eden/array": "4.*",
-            "eden/core": "4.*",
-            "eden/model": "4.*",
-            "eden/string": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2015-10-13 05:27:04",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Eden\\Collection\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Eden generic collection component",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/sql",
-        "version": "4.0.1",
-        "version_normalized": "4.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Sql.git",
-            "reference": "83380382f126588a01bd5401024c23c18c3022e1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Sql/zipball/83380382f126588a01bd5401024c23c18c3022e1",
-            "reference": "83380382f126588a01bd5401024c23c18c3022e1",
-            "shasum": ""
-        },
-        "require": {
-            "eden/array": "4.*",
-            "eden/collection": "4.*",
-            "eden/core": "4.*",
-            "eden/model": "4.*",
-            "eden/string": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2015-10-13 05:31:58",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Eden\\Sql\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "SQL core methods for MySQL, Posgres and SQLite",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
-        "name": "eden/sqlite",
-        "version": "4.0.1",
-        "version_normalized": "4.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Eden-PHP/Sqlite.git",
-            "reference": "c4ca0909993f866537b07a6a201a0cfeb4f363b1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Eden-PHP/Sqlite/zipball/c4ca0909993f866537b07a6a201a0cfeb4f363b1",
-            "reference": "c4ca0909993f866537b07a6a201a0cfeb4f363b1",
-            "shasum": ""
-        },
-        "require": {
-            "eden/array": "4.*",
-            "eden/collection": "4.*",
-            "eden/core": "4.*",
-            "eden/model": "4.*",
-            "eden/sql": "4.*",
-            "eden/string": "4.*",
-            "php": ">=5.4.1"
-        },
-        "time": "2015-10-13 05:38:16",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Eden\\Sqlite\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Christian Blanquera",
-                "email": "cblanquera@openovate.com"
-            }
-        ],
-        "description": "Eden SQLite Search, Collection, Model ORM componen",
-        "homepage": "http://eden-php.com",
-        "keywords": [
-            "eden",
-            "library"
-        ]
-    },
-    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -463,6 +139,154 @@
         "keywords": [
             "spatie",
             "url"
+        ]
+    },
+    {
+        "name": "simple-crud/simple-crud",
+        "version": "v6.9.0",
+        "version_normalized": "6.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/oscarotero/simple-crud.git",
+            "reference": "72bc693cf95d8ba10e950e6b675b917f0f7fffef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/oscarotero/simple-crud/zipball/72bc693cf95d8ba10e950e6b675b917f0f7fffef",
+            "reference": "72bc693cf95d8ba10e950e6b675b917f0f7fffef",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "zendframework/zend-diactoros": "^1.3"
+        },
+        "time": "2017-02-05 12:53:27",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "SimpleCrud\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oscar Otero",
+                "email": "oom@oscarotero.com",
+                "homepage": "http://oscarotero.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Create/Read/Update/Delete easily",
+        "homepage": "https://github.com/oscarotero/simple-crud",
+        "keywords": [
+            "crud",
+            "mysql",
+            "sqlite"
+        ]
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v3.2.4",
+        "version_normalized": "3.2.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/filesystem.git",
+            "reference": "a0c6ef2dc78d33b58d91d3a49f49797a184d06f4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/filesystem/zipball/a0c6ef2dc78d33b58d91d3a49f49797a184d06f4",
+            "reference": "a0c6ef2dc78d33b58d91d3a49f49797a184d06f4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2017-01-08 20:47:33",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Filesystem\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "michaelgarrez/text-file",
+        "version": "v0.0.1",
+        "version_normalized": "0.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Babacooll/TextFile.git",
+            "reference": "7bfd0467e20214ef088f5ac27d9f7be50053f54c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Babacooll/TextFile/zipball/7bfd0467e20214ef088f5ac27d9f7be50053f54c",
+            "reference": "7bfd0467e20214ef088f5ac27d9f7be50053f54c",
+            "shasum": ""
+        },
+        "require": {
+            "symfony/filesystem": "^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.2"
+        },
+        "time": "2016-03-05 13:43:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "TextFile\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Garrez",
+                "email": "michael.garrez@gmail.com"
+            }
+        ],
+        "description": "Text file manipulation",
+        "keywords": [
+            "file",
+            "manipulation",
+            "text",
+            "text file",
+            "text file manipulation"
         ]
     }
 ]

@@ -1,0 +1,23 @@
+{
+    "name": "michaelgarrez/text-file",
+    "description": "Text file manipulation",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {"TextFile\\": "src/"}
+    },
+    "keywords": [
+        "text file", "text" , "file", "manipulation", "text file manipulation"
+    ],
+    "authors": [
+        {
+            "name": "Michaël Garrez",
+            "email": "michael.garrez@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/filesystem": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2"
+    }
+}
