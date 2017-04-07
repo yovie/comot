@@ -1,3 +1,9 @@
-nature1.jpg
-Bersama Kita Bisa
-ini adalah gambar pertama
+Artikel mantap sekali
+#nature2.jpg
+<h2>ini bagian kedua<h2>
+<strong>maka dari itu</strong>
+<p>Ini adalah contoh konten</p>
+#nature1.jpg
+Ini adalah deskripsi
+#nature2.jpg
+<h2>ini bagian kedua<h2>

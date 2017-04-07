@@ -1,3 +1,9 @@
-nature2.jpg
-Ini adalah Judul
-ini bagian kedua, maka dari itu
+Ini adalah Html
+#nature2.jpg
+<h2>ini bagian kedua<h2>
+<strong>maka dari itu</strong>
+<p>Ini adalah contoh konten</p>
+#nature1.jpg
+<p>Ini adalah deskripsi</p>
+#nature2.jpg
+<h2>ini bagian kedua<h2>

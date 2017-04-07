@@ -13,6 +13,8 @@
 	use SimpleCrud\SimpleCrud;
 	use TextFile\TextFile;
 	
+	$site_title = "Gen blog template";
+	
 	$url = Url::fromString( $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] );
 	
 	$category = $url->getSegment(2);
@@ -43,35 +45,70 @@
 			]
 		);
 		
+		$database->execute("DROP TABLE IF EXISTS post");
+		$database->execute("DROP TABLE IF EXISTS category");
+		$database->execute(
+<<<EOT
+CREATE TABLE `category` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT
+);
+EOT
+		);
+		$database->execute(
+<<<EOT
+CREATE TABLE "post" (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`category_id`	INTEGER,
+	`title`	TEXT,
+	`body`	TEXT,
+	`picture`	TEXT,
+	`url`	TEXT,
+	`waktu`	INTEGER
+);
+EOT
+		);
+		
 		//~ clear all database
-		$database->category->delete()->run();
-		$database->post->delete()->run();
+		//~ $database->category->delete()->run();
+		//~ $database->post->delete()->run();
+		
+		echo "Generate content ... <br/>";
 		
 		foreach($files as $fi){
+			echo $fi . "<br/>";
 			$tcate = str_replace($base_path . '/', '', $fi);
 			$tcate = explode('/', $tcate);
 			assert(count($tcate)==2);
 			$tcat = $tcate[0];
 			$tpost = str_replace('.txt', '', $tcate[1]);
 			$sel_category = $database->category->select()
-				->where('category=:category', [':category' => $tcat])
+				->where('name=:category', [':category' => $tcat])
 				->one()
 				->run();
 			if(empty($sel_category)){
 				$cat_id = $database->category->insert()
 					->data([
-						'category'=>$tcat
+						'name'=>$tcat
 					])->run();
 			}else
 				$cat_id = $sel_category->id;
 			//~ read file
 			$fn = new TextFile($fi);
 			$tl = $fn->countLines();
-			$picture = $fn->getLineContent(0);
-			$title = $fn->getLineContent(1);
+			$title = $fn->getLineContent(0);
+			$uri = str_replace(' ', '-', $title);
 			$content = '';
-			for($i=2; $i<$tl; $i++){
-				$content .= $fn->getLineContent($i);
+			$picture = array();
+			for($i=1; $i<$tl; $i++){
+				$rowc = $fn->getLineContent($i);
+				if($rowc[0]=='#'){
+					$npic = substr($rowc, 1);
+					$picture[] = $npic;
+					$content .= "<<<$npic>>>";
+				}else{
+					$content .= "<p>$rowc</p>";
+				}
 			}
 			//~ insert post
 			$database->post->insert()
@@ -79,18 +116,28 @@
 					'category_id'=>$cat_id,
 					'title'=>$title,
 					'body'=>$content,
-					'picture'=>$picture,
-					'url'=>$tpost
+					'picture'=>implode(',', $picture),
+					'url'=>$uri,
+					'waktu'=>time()
 				])->run();
 		}
+		
+		echo "done ... <br/>";
+		
+		echo "<a href='" .base_url. "'>Click here</a>";
+		
+		die;
 	}
 	
-	$all_category = $database->category->select()
-				->run();
 				
 	if($category=="gen"){
 		GenerateContent();
+	}if($category=="sitemap.xml"){
+		include_once "sitemap.php";
 	}else{
+		$all_category = $database->category->select()
+				->run();
+				
 		$the_posts = $database->post->select()
 				->orderBy('post.id ASC')
 				->run();

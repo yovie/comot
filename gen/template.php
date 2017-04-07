@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FREE RESPONSIVE HORIZONTAL ADMIN</title>
+    <title><?php echo $site_title ?></title>
     <link href="<?php echo base_url ?>assets/css/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url ?>assets/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url ?>assets/css/style.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/css/jquery.fancybox.min.css" rel='stylesheet' type='text/css' />
 	<script src="<?php echo base_url ?>assets/js/jquery-1.10.2.js"></script>
 </head>
 <body>
@@ -58,22 +59,38 @@
              <div class="row">
 
               <div class="col-md-8 col-sm-8 col-xs-12">
-                    <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
+				 
+				 <?php if(!isset($the_post)): ?> 
+                 <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
                    
                     <div class="carousel-inner">
-                        <?php $nn = 0; foreach($the_posts as $pp) :?>
+                        <?php $nn = 0; foreach($the_posts as $pp): 
+							$ppos = explode(',', $pp->picture);
+							foreach($ppos as $ipos):
+								if(empty($ipos))
+									continue;
+                        ?>
                         <div class="item <?php echo ($nn==0)?'active':''?> ">
 
-                            <img src="<?php echo base_url . 'content/' . $pp->category . '/' . $pp->picture ?>" alt="" />
+                            <img src="<?php echo base_url . 'content/' . $pp->category . '/' . $ipos ?>" alt="<?php echo $pp->title ?>" />
                            
                         </div>
-                        <?php $nn++; endforeach; ?>
+                        <?php 		$nn++; 
+								endforeach;
+							endforeach; 
+						?>
                     </div>
                     
                      <ol class="carousel-indicators">
-						<?php $mm = 0; foreach($the_posts as $pp) :?>
+						<?php $mm = 0; foreach($the_posts as $pp) :
+							$sa = explode(',',$pp->picture);
+							foreach($sa as $ss):
+						?>
 							<li data-target="#carousel-example" data-slide-to="<?php echo $mm ?>" class="<?php echo ($mm==0)?'active':''?>"></li>
-                        <?php $mm++; endforeach; ?>
+                        <?php $mm++; 
+								endforeach;
+							endforeach; 
+						?>
                     </ol>
                     
                      <a class="left carousel-control" href="#carousel-example" data-slide="prev">
@@ -84,14 +101,69 @@
 					  </a>
                 </div>
                 
+                <br/>
+                
+                <p style="text-align: center;">
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank" data-mce-target="_blank">
+						<img src="assets/img/fb.png" alt="social-icons-02-1" width="70px">
+					</a>&nbsp;&nbsp;
+					<a href="https://twitter.com/home?status=<?php echo $site_title .', open : '. $url; ?>" target="_blank" data-mce-target="_blank">
+						<img src="assets/img/tw.png" alt="social-icons-01-2" width="70px">
+					</a>&nbsp;&nbsp;
+					<a href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" data-mce-target="_blank">
+						<img src="assets/img/gplus.png" alt="social-icons-05" width="70px">
+					</a>&nbsp;&nbsp;
+					<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $site_title; ?>&amp;summary=<?php echo $site_title; ?>&amp;source=" target="_blank" data-mce-target="_blank">
+						<img src="assets/img/lin.png" alt="social-icons-03-1" width="70px">
+					</a>&nbsp;&nbsp;
+					<a href="https://pinterest.com/pin/create/button/?url=<?php echo $url; ?>&amp;media=<?php echo $url; ?>&amp;description=<?php echo $site_title; ?>" target="_blank" data-mce-target="_blank">
+						<img src="assets/img/pth.png" alt="social-icons-04" width="70px">
+					</a>
+				</p>
+				
+                <?php endif; ?>
+                
                 <div class="content">
 					
 					<?php if(isset($the_post)): ?>
 						<h1><?php echo $the_post->title ?></h1>
-						<?php echo $the_post->body ?>
-						<?php if(!empty($the_post->picture)): ?>
-							<img src="<?php echo base_url . 'content/' . $the_category->name . '/' . $the_post->picture ?>"  width="100%"/>
-						<?php endif; ?>
+						<?php 
+							$bodies = $the_post->body;
+							
+							if(!empty($the_post->picture)): 
+								$tpic = explode(',', $the_post->picture);
+								foreach($tpic as $ppic):
+									if(empty($ppic))
+										continue;
+									$puri = base_url . 'content/' . $the_category->name . '/' . $ppic;
+									$tosearch = '<a id="picpop" href="' .$puri. '" title="' .$the_post->title. '">'
+												. '<img src="' .$puri. '"  width="70%" alt="' .$the_post->title. '" />'
+												. '</a>';												
+									$bodies = str_replace("<<<$ppic>>>", $tosearch, $bodies); 
+								endforeach;
+							endif; 
+							
+							echo $bodies;
+						?>
+						
+						<p style="text-align: center;">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank" data-mce-target="_blank">
+								<img src="<?php echo base_url ?>assets/img/fb.png" alt="social-icons-02-1" width="70px">
+							</a>&nbsp;&nbsp;
+							<a href="https://twitter.com/home?status=<?php echo $the_post->title .', open : '. $url; ?>" target="_blank" data-mce-target="_blank">
+								<img src="<?php echo base_url ?>assets/img/tw.png" alt="social-icons-01-2" width="70px">
+							</a>&nbsp;&nbsp;
+							<a href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" data-mce-target="_blank">
+								<img src="<?php echo base_url ?>assets/img/gplus.png" alt="social-icons-05" width="70px">
+							</a>&nbsp;&nbsp;
+							<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $the_post->title; ?>&amp;summary=<?php echo $the_post->title; ?>&amp;source=" target="_blank" data-mce-target="_blank">
+								<img src="<?php echo base_url ?>assets/img/lin.png" alt="social-icons-03-1" width="70px">
+							</a>&nbsp;&nbsp;
+							<a href="https://pinterest.com/pin/create/button/?url=<?php echo $url; ?>&amp;media=<?php echo $url; ?>&amp;description=<?php echo $the_post->title; ?>" target="_blank" data-mce-target="_blank">
+								<img src="<?php echo base_url ?>assets/img/pth.png" alt="social-icons-04" width="70px">
+							</a>
+						</p>
+						
 					<?php endif; ?>
 					
                 </div>
@@ -133,6 +205,19 @@
     </section>
     
     <script src="<?php echo base_url ?>assets/js/bootstrap.js"></script>	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/js/jquery.fancybox.min.js"></script>	
+    
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#picpop").fancybox({
+				  helpers: {
+					  title : {
+						  type : 'float'
+					  }
+				  }
+			  });
+		});
+    </script>
   
 </body>
 </html>

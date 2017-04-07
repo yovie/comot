@@ -1,17 +1,18 @@
 CREATE TABLE sqlite_sequence(name,seq);
 
-CREATE TABLE "tposts" (
+CREATE TABLE "post" (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`category_id`	INTEGER,
 	`title`	TEXT,
 	`body`	TEXT,
 	`picture`	TEXT,
-	`url`	TEXT
+	`url`	TEXT,
+	`waktu`	INTEGER
 );
 
-CREATE TABLE `tcategories` (
+CREATE TABLE `category` (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`category`	TEXT
+	`name`	TEXT
 );
 
 
@@ -25,3 +26,11 @@ no post :
 with post:
 	get 10 random post, ok
 	get the post
+
+
+Todo :
+1. 	sama gambar supot alt tag supaya gambarna seo, 						ok, alt=title
+2. 	aya di backlinko
+3. 	sama social media..													ok
+4. 	archive... lamun di klik kategori mantaf atau nature 
+	judul postingan satu image dan deskripsi di tampilkan semua
