@@ -58,7 +58,7 @@
                           
              <div class="row">
 
-              <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="<?php echo (count($the_posts)<2) ? 'col-md-12 col-sm-12':'col-md-8 col-sm-8' ?> col-xs-12">
 				 
 				 <?php if(!isset($the_post)): ?> 
                  <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
@@ -72,7 +72,7 @@
                         ?>
                         <div class="item <?php echo ($nn==0)?'active':''?> ">
 
-                            <img src="<?php echo base_url . 'content/' . $pp->category . '/' . $ipos ?>" alt="<?php echo $pp->title ?>" />
+                            <img src="<?php echo base_url . 'content/' . $ipos ?>" alt="<?php echo $pp->title ?>" />
                            
                         </div>
                         <?php 		$nn++; 
@@ -135,7 +135,7 @@
 								foreach($tpic as $ppic):
 									if(empty($ppic))
 										continue;
-									$puri = base_url . 'content/' . $the_category->name . '/' . $ppic;
+									$puri = base_url . 'content/' . $ppic;
 									$tosearch = '<a id="picpop" href="' .$puri. '" title="' .$the_post->title. '">'
 												. '<img src="' .$puri. '"  width="70%" alt="' .$the_post->title. '" />'
 												. '</a>';												
@@ -170,7 +170,7 @@
               </div>
               
                  
-                 <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="col-md-4 col-sm-4 col-xs-12" style="display:<?php echo (count($the_posts)<2) ? 'none':'block' ?>">
                  
                           <div class="panel panel-default">
 							<div class="panel-heading">
@@ -183,12 +183,12 @@
 								</p>
 								<?php endforeach; ?>
 							</div>
-                        </div>
+              </div>
                 
 					
-				</div>
+			</div>
              
-                 </div>
+        </div>
             
     </div>
     </div>

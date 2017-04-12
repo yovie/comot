@@ -17,7 +17,7 @@
 	
 	$url = Url::fromString( $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] );
 	
-	$category = $url->getSegment(2);
+	$category = urldecode($url->getSegment(2));
 	$posting = $url->getSegment(3);
 	
 	$dsn = "sqlite:" .getcwd(). "/database/db.sqlite";
@@ -33,7 +33,7 @@
 		$files = Dir::scan( getcwd() . '/' . content_path,
 			[
 				'include' => '*.txt',
-				//~ 'exclude' => '*.save.txt',
+				'exclude' => '*cdma.txt',
 				'type'    => 'file',
 				'skipDots'       => true,
 				'leavesOnly'     => true,
@@ -104,7 +104,7 @@ EOT
 				$rowc = $fn->getLineContent($i);
 				if($rowc[0]=='#'){
 					$npic = substr($rowc, 1);
-					$picture[] = $npic;
+					$picture[] = $tcat .'/'. $npic;
 					$content .= "<<<$npic>>>";
 				}else{
 					$content .= "<p>$rowc</p>";
@@ -121,6 +121,36 @@ EOT
 					'waktu'=>time()
 				])->run();
 		}
+		
+		$fi = getcwd() . '/content/cdma.txt';
+		
+		echo "Read CDMA $fi ... <br/>";
+		
+		$fn = new TextFile($fi);
+		$title = $fn->getLineContent(0);
+		$cat_id = $database->category->insert()->data(['name'=>$title])->run();
+		$content = '';
+		$picture = array();
+		for($i=1; $i<$tl; $i++){
+			$rowc = $fn->getLineContent($i);
+			if($rowc[0]=='#'){
+				$npic = substr($rowc, 1);
+				$picture[] = $npic;
+				$content .= "<<<$npic>>>";
+			}else{
+				$content .= "<p>$rowc</p>";
+			}
+		}
+		$uri = str_replace(' ', '-', $title);
+		$database->post->insert()
+			->data([
+				'category_id'=>$cat_id,
+				'title'=>$title,
+				'body'=>$content,
+				'picture'=>implode(',', $picture),
+				'url'=>$uri,
+				'waktu'=>time()
+		])->run();
 		
 		echo "done ... <br/>";
 		
@@ -214,6 +244,11 @@ EOT
 			}
 		}
 		
+		if(count($the_posts)==1){
+			foreach($the_posts as $po){
+				$the_post = $po;
+			}
+		}
 	}
 	
 	include "template.php";
