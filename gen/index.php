@@ -105,7 +105,7 @@ EOT
 				if($rowc[0]=='#'){
 					$npic = substr($rowc, 1);
 					$picture[] = $tcat .'/'. $npic;
-					$content .= "<<<$npic>>>";
+					$content .= "<<<$tcat/$npic>>>";
 				}else{
 					$content .= "<p>$rowc</p>";
 				}
