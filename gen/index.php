@@ -27,7 +27,7 @@
 		echo "Connection to '$dsn' failed. Reason: " . $e->getMessage();
 	}
 	
-	function GenerateContent(){
+	function ClearDB(){
 		global $base_path;
 		global $database;
 		$files = Dir::scan( getcwd() . '/' . content_path,
@@ -47,6 +47,7 @@
 		
 		$database->execute("DROP TABLE IF EXISTS post");
 		$database->execute("DROP TABLE IF EXISTS category");
+		//~ $database->execute("DROP TABLE IF EXISTS sub_category");
 		$database->execute(
 <<<EOT
 CREATE TABLE `category` (
@@ -68,6 +69,24 @@ CREATE TABLE "post" (
 );
 EOT
 		);
+		$database->execute(
+<<<EOT
+CREATE TABLE IF NOT EXISTS `sub_category` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`category_id`	INTEGER,
+	`name`	TEXT
+);
+EOT
+		);
+		
+		return $files;
+	}
+	
+	function GenerateContent(){
+		global $base_path;
+		global $database;
+		
+		$files = ClearDB();
 		
 		//~ clear all database
 		//~ $database->category->delete()->run();
@@ -159,9 +178,31 @@ EOT
 		die;
 	}
 	
+	function InputContent(){
+		echo '<html>';
+		echo '<head><title>Input Post Title</title>';
+		echo '</head>';
+		echo '<body>';
+?>
+	<table>
+		<thead>
+			<tr>
+				<td>No</td>
+				<td>Kategori</td>
+			</tr>
+		</thead>
+	</table>
+<?php
+		echo '</body>';
+		echo '</html>';
+		die;
+	}
+	
 				
 	if($category=="gen"){
 		GenerateContent();
+	}if($category=="gon"){
+		InputContent();
 	}if($category=="sitemap.xml"){
 		include_once "sitemap.php";
 	}else{

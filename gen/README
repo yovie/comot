@@ -15,6 +15,12 @@ CREATE TABLE `category` (
 	`name`	TEXT
 );
 
+CREATE TABLE `sub_category` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`category_id`	INTEGER,
+	`name`	TEXT
+);
+
 
 no url :
 	get 10 random post, ok
